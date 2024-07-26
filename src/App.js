@@ -9,17 +9,23 @@ import DisplayInfor from "./components/DisplayInfor";
 
 class App extends React.Component {
   
-   
+    state = {
+        listUser: [
+            {id: 1, name: "Thành Nhân", age: "20"},
+            {id: 2, name: "Thành Nhân 2", age: "21"},
+            {id: 3, name: "Thành Nhân 3", age: "22"},
+            {id: 4, name: "Thành Nhân 4", age: "23"},
+        ]
+    }
     //JSX
     render() {
-      const myAge = 22;
-      const array = [1, 2, 3, 4]
+     
       return (
         <div>
           
             <UserInfor />
             <br />
-            <DisplayInfor name="Thành Nhân props" age={myAge} myArr = {array}/>
+            <DisplayInfor listUser ={this.state.listUser}/>
         </div>
       );
     }
