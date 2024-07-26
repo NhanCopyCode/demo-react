@@ -4,29 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { increaseCounter, decreaseCounter } from "./redux/action/counterAction";
 import MyComponent from "./components/MyComponent";
 import React from "react";
+import UserInfor from "./components/UserInfor";
+import DisplayInfor from "./components/DisplayInfor";
 
 class App extends React.Component {
   
-    state =  {
-      name: 'Thành Nhân',
-      address: 'Hoi dan IT',
-      age: 21
-    };
-
-    handleClicck(event) {
-      console.log(event.target);      
-    }
-      
-
-    handleOnMoverOver(event) {
-        console.log(event.target);
-    }
+   
     //JSX
     render() {
+      const myAge = 22;
+      const array = [1, 2, 3, 4]
       return (
         <div>
-            Xin chào thế giới, tên của thôi là {this.state.name}
-            <button onMouseOver={this.handleOnMoverOver}>Click me</button>
+          
+            <UserInfor />
+            <br />
+            <DisplayInfor name="Thành Nhân props" age={myAge} myArr = {array}/>
         </div>
       );
     }
