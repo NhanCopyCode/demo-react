@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { increaseCounter, decreaseCounter } from "./redux/action/counterAction";
 import MyComponent from "./components/MyComponent";
 import React from "react";
-import UserInfor from "./components/UserInfor";
+import AddUserInfor from "./components/AddUserInfor";
 import DisplayInfor from "./components/DisplayInfor";
 
 class App extends React.Component {
@@ -18,14 +18,24 @@ class App extends React.Component {
         ]
     }
     //JSX
+    handleAddNewUser = (userObj) => {
+        console.log('Check date from parent: ', userObj);
+        this.setState({
+            listUser: [userObj, ...this.state.listUser]
+        });
+    }
     render() {
      
       return (
         <div>
           
-            <UserInfor />
+            <AddUserInfor 
+                handleAddNewUser = {this.handleAddNewUser}
+            />
             <br />
-            <DisplayInfor listUser ={this.state.listUser}/>
+            <DisplayInfor 
+                listUser ={this.state.listUser}
+            />
         </div>
       );
     }
