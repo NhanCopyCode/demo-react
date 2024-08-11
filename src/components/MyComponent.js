@@ -1,5 +1,5 @@
 // class component
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // class MyComponent extends React.Component {
 //     // JSX
    
@@ -41,6 +41,20 @@ const MyComponent = () => {
         }
         setListUser([newUser, ...listUser]);
     }
+
+    const handleDeleteUser = userId => {
+        let listUserClone = listUser;
+        listUserClone = listUserClone.filter(user => user.id !== userId);
+        setListUser(listUserClone);
+    }
+
+    useEffect(() => {
+        if(listUser.length === 0) {
+            alert('You deleted all the users')
+        }
+    }, [listUser]);
+
+    console.log('call me render')
     return (
         <div>
             Xin chào tôi tên là {user.name}
@@ -67,9 +81,9 @@ const MyComponent = () => {
                                 tuổi
                                 <div>
                                     <button
-                                        // onClick={() =>
-                                        //     props.handleDeleteUser(user.id)
-                                        // }
+                                        onClick={() =>
+                                            handleDeleteUser(user.id)
+                                        }
                                     >
                                         Delelte
                                     </button>
