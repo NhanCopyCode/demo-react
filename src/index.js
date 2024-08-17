@@ -10,7 +10,7 @@ import {
     RouterProvider,
     BrowserRouter,
     Routes,
-    Route
+    Route,
 } from "react-router-dom";
 import User from "./components/User/User";
 import Admin from "./components/Admin/Admin";
@@ -20,11 +20,12 @@ root.render(
     <Provider store={store}>
         {/* <React.StrictMode> */}
         <BrowserRouter>
-          <Routes>
-                <Route path="/" element={<App />}/>
-                <Route path="users" element={<User />}/>
-                <Route path="admins" element={<Admin />}/>
-          </Routes>
+            <Routes>
+                <Route path="/" element={<App />}>
+                    <Route path="users" element={<User />} />
+                    <Route path="admins" element={<Admin />} />
+                </Route>
+            </Routes>
         </BrowserRouter>
         {/* </React.StrictMode> */}
     </Provider>
