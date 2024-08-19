@@ -1,9 +1,14 @@
+import videoHomepage from "../../assets/video-homepage.mp4"
+
 const HomePage = (props) => {
     return (
         <div className="homepage-container">
-            Homepage component
+            <video autoPlay loop muted>
+                <source src={videoHomepage} type="video/mp4" />
+                Your browser does not support the video tag
+            </video>
         </div>
-    )
-}
+    );
+};
 
 export default HomePage;
